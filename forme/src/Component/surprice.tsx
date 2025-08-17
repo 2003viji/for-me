@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 
 const gifts = [
+  "/images/bady2.jpg",
+  "https://youtube.com/shorts/l4PdDtbV7hM?si=8JuOK5UfJX8cc6d3",
+  "/images/bday-4.jpg",
   "",
-  "🎁 Gift 1: Free Coupon",
+  "/images/bday.jpg",
   "",
-  "🎉 Gift 2: Surprise Party",
+  "/images/bday3.jfif",
   "",
-  "💎 Gift 3: Jewelry",
-  "",
-  "🍫 Gift 4: Chocolate Box",
-  "",
-  "✈️ Gift 5: Holiday Trip"
+  "/images/bday5.jpg",
+  "Love you so much my love"
 ];
 
 export function Surprise() {
@@ -19,9 +19,9 @@ export function Surprise() {
 
   return (
     <div className="book-wrapper">
-      <div className="svg-container" style={{ position: "relative", display: "inline-block" }}>
+      {!ribbonRemoved && (<div className="svg-container" style={{ position: "relative", display: "inline-block" }}>
         <svg
-       
+
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,47 +42,47 @@ export function Surprise() {
           </g>
         </svg>
 
-        {!ribbonRemoved && (
-          <div
-             className="ribbon"
-            onClick={() => setRibbonRemoved(true)}
-            style={{
-              position: "absolute",
-              top: "60%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              color: "#dc8b70",
-              fontSize: "1rem",
-              textAlign: "center",
-              cursor: "pointer",
-              fontWeight: "bold",
-              lineHeight: "1.4rem",
-            }}
-          >
-            🧡 “என்னை தாண்டி<br /> என் இதயதிர்க்குள் பார்<br /> உனக்கான இவளின் பரிசை…” 🧡
-          </div>
-        )}
-      </div>
+
+        <div
+
+          onClick={() => setRibbonRemoved(true)}
+          style={{
+            position: "absolute",
+            top: "60%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "#982904",
+            fontSize: "1rem",
+            textAlign: "center",
+            cursor: "pointer",
+            fontWeight: "bold",
+            lineHeight: "1.4rem",
+          }}
+        >
+          🧡 “என்னை தாண்டி<br /> என் இதயதிர்க்குள் பார்<br /> உனக்கான இவளின் பரிசை…” 🧡
+        </div>
+
+      </div>)}
 
 
       {ribbonRemoved && (
         <div className="book-frame">
           {/* Decorative SVG book background */}
           <svg className="book-svg" viewBox="0 0 600 450" preserveAspectRatio="none">
-            <rect x="5" y="5" width="290" height="440" rx="15" ry="15" fill="#800080" stroke="#4a2e1a" strokeWidth="5" />
-            <rect x="305" y="5" width="290" height="440" rx="15" ry="15" fill="#800080" stroke="#4a2e1a" strokeWidth="5" />
-            <rect x="295" y="5" width="10" height="440" fill="#5a3a23" />
+            <rect x="5" y="5" width="290" height="440" rx="15" ry="15" fill="#dc8b70" stroke="#dc8b70" strokeWidth="5" />
+            <rect x="305" y="5" width="290" height="440" rx="15" ry="15" fill="#dc8b70" stroke="#dc8b70" strokeWidth="5" />
+            <rect x="295" y="5" width="10" height="440" fill="#dc8b70" />
           </svg>
 
           <HTMLFlipBook
-            width={300}
+            width={290}
             height={400}
             size="stretch"
             style={{}}
-            minWidth={200}
-            maxWidth={400}
-            minHeight={300}
-            maxHeight={500}
+            minWidth={0}
+            maxWidth={0}
+            minHeight={0}
+            maxHeight={0}
             maxShadowOpacity={0.5}
             showCover={true}
             mobileScrollSupport={true}
@@ -100,20 +100,74 @@ export function Surprise() {
             disableFlipByClick={false}
           >
             <div className="page cover">
-              <h2>💖 My Surprise Book 💖</h2>
-              <p>Flip the pages to see your surprises!</p>
+              <p>உயிர் பெற்ற நாளில்<br /> உன் உயிரில் கலந்தவளின்<br /> பரிசு...</p>
             </div>
 
             {gifts.map((gift, i) => (
               <div key={i} className="page inner">
-                {i % 2 == 0 ? <img src="" alt="gift" /> :
-                  <h3>{gift}</h3>}
+                {(() => {
+                  switch (i) {
+                    case 0:
+                    case 2:
+                    case 4:
+                    case 6:
+                      // Images as background
+                      return (
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            backgroundImage: `url(${gift})`,
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
+                            borderRadius: "8px",
+                          }}
+                        ></div>
+                      );
+
+                    case 1:
+                      // Video
+                      return (
+                        <video
+                          src={gift}
+                          controls
+                          style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+                        />
+                      );
+
+                    case 3:
+                      // Audio
+                      return (
+                        <audio src={gift} controls style={{ width: "80%" }} />
+                      );
+
+                    case 5:
+                    case 7:
+                      // Text
+                      return <h3>{gift || "Your Surprise Text!"}</h3>;
+
+                    default:
+                      return null;
+                  }
+                })()}
               </div>
             ))}
 
+
+
             <div className="page end">
-              <h2>🎊 The End 🎊</h2>
-              <p>Hope you enjoyed the surprises!</p>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundImage: `url("/images/bday-6.jpg")`,
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  borderRadius: "8px",
+                }}
+              ></div>
             </div>
           </HTMLFlipBook>
         </div>
