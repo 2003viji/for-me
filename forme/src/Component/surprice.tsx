@@ -5,9 +5,9 @@ const gifts = [
   "/images/bady2.jpg",
   "https://youtube.com/shorts/l4PdDtbV7hM?si=8JuOK5UfJX8cc6d3",
   "/images/bday-4.jpg",
-  "",
+  "/videos/Azhagai-Pookuthe.mp3",
   "/images/bday.jpg",
-  "",
+  "/images/my-gift.jpg",
   "/images/bday3.jfif",
   "",
   "/images/bday5.jpg",
@@ -111,6 +111,7 @@ export function Surprise() {
                     case 2:
                     case 4:
                     case 6:
+                    case 8:
                       // Images as background
                       return (
                         <div
@@ -129,23 +130,57 @@ export function Surprise() {
                     case 1:
                       // Video
                       return (
-                        <video
-                          src={gift}
-                          controls
-                          style={{ width: "100%", height: "100%", borderRadius: "8px" }}
-                        />
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          src="https://www.youtube.com/embed/l4PdDtbV7hM"
+                          title="YouTube Shorts"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          style={{ borderRadius: "8px" }}
+                        ></iframe>
+
                       );
 
                     case 3:
                       // Audio
                       return (
-                        <audio src={gift} controls style={{ width: "80%" }} />
+                        <div className="we-cover" style={{ height: "100%" }}>
+                          <audio
+                            src={gift}
+                            controls
+                            style={{ width: "80%", marginTop: "50%" }}
+                          />
+                        </div>
+
                       );
 
                     case 5:
+                      return (
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            backgroundImage: `url(${gift})`,
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
+                            borderRadius: "8px",
+                          }}
+                        ></div>
+                      );
                     case 7:
                       // Text
-                      return <h3>{gift || "Your Surprise Text!"}</h3>;
+                      return <video
+                        src={gift}
+                        controls
+                        style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+                      />
+                    case 9:
+                      return <div className="page final-cover" style={{ height: "100%" }}>
+                        <p>என் காதலின் காதலுக்கு, <br />காற்றாகிய காதலின் <br />பிறந்தநாள் வாழ்த்துக்கள்...</p>
+                      </div>
 
                     default:
                       return null;

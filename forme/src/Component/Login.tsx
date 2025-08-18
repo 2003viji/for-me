@@ -7,7 +7,7 @@ export function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (password.trim() === "A") {
+   if (password.trim() === "💜💗") {
       navigate("/surprise");
     } else {
       setError("தவறான சாவி 💔 மீண்டும் முயற்சி செய்");

@@ -76,6 +76,44 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+.final-cover {
+  position: relative;
+  color: #982904;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+.final-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/final-gift.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.4;   /* only image fades */
+  z-index: 1;    /* keeps it behind the text */
+}
+
+.we-cover {
+  position: relative;
+  z-index: 0; /* reset stacking */
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+.we-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/we-love.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.4;   /* only image fades */
+  z-index: -1;    /* send it behind content */
+}
+
+
 .cover p{
   margin-top: 50% !important;
 }

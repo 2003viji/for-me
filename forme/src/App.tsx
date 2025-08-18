@@ -8,9 +8,9 @@ import { Surprise } from './Component/surprice';
 function App() {
   return (
     <BrowserRouter>
-     <Routes>
+      <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/surprise" element={<Surprise/>}/>
+        <Route path="/surprise" element={<Surprise />} />
       </Routes>
     </BrowserRouter>
   );
