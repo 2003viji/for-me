@@ -1,0 +1,155 @@
+.book-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  perspective: 2000px;
+}
+
+.ribbon {
+  /* background: crimson;
+  color: white;
+  padding: 15px 40px;
+  font-size: 18px;
+  border-radius: 40px;
+  width: 500px;
+  text-overflow: clip; */
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.book-frame {
+  position: relative;
+  width: 600px;
+  height: 450px;
+  
+}
+
+.book-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Flipbook container */
+.book {
+  position: absolute;
+  top: 21px;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 6px;
+ 
+}
+
+/* Page base */
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  padding: 20px;
+  font-family: "Georgia", serif;
+  background: #fffdf7;
+  border: 1px solid #d4a373;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+  
+}
+.cover {
+  background: 
+    
+    url('../images/bday-4.jpg') no-repeat center center;
+  background-size: cover;
+  color: #982904;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.final-cover {
+  position: relative;
+  color: #982904;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+.final-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/final-gift.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.4;   /* only image fades */
+  z-index: 1;    /* keeps it behind the text */
+}
+
+.we-cover {
+  position: relative;
+  z-index: 0; /* reset stacking */
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+.we-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/we-love.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.4;   /* only image fades */
+  z-index: -1;    /* send it behind content */
+}
+
+
+.cover p{
+  margin-top: 50% !important;
+}
+
+/* Decorative left page */
+.page.design {
+  background: #faf3e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px dashed #d4af37;
+}
+
+/* Surprise right page */
+.page.inner {
+  background: repeating-linear-gradient(
+    #fffdf7,
+    #fffdf7 24px,
+    #f1e9da 25px
+  );
+  font-weight: bold;
+  text-align: center;
+}
+
+/* End page */
+.end {
+  background: linear-gradient(145deg, #dc8b70, #e27a57);
+  font-size: 24px;
+  text-align: center;
+  color: #222;
+}
+
+.gift-img {
+  max-width: 100%;       /* Fit inside page width */
+  max-height: 100%;      /* Fit inside page height */
+  object-fit: fill;  /* Preserve aspect ratio */
+  border-radius: 8px;   /* Optional rounded corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Optional shadow */
+}
