@@ -7,7 +7,7 @@ import { Surprise } from './Component/surprice';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/for-me">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/surprise" element={<Surprise />} />
