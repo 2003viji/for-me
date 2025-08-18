@@ -9,7 +9,7 @@ const gifts = [
   "/images/bday.jpg",
   "/images/my-gift.jpg",
   "/images/bday3.jfif",
-  "",
+  "/videos/ai.mp4",
   "/images/bday5.jpg",
   "Love you so much my love"
 ];
@@ -172,11 +172,16 @@ export function Surprise() {
                       );
                     case 7:
                       // Text
-                      return <video
-                        src={gift}
-                        controls
-                        style={{ width: "100%", height: "100%", borderRadius: "8px" }}
-                      />
+                      return  <iframe
+                          width="100%"
+                          height="100%"
+                          src={gift}
+                          title="YouTube Shorts"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          style={{ borderRadius: "8px" }}
+                        ></iframe>
                     case 9:
                       return <div className="page final-cover" style={{ height: "100%" }}>
                         <p>என் காதலின் காதலுக்கு, <br />காற்றாகிய காதலின் <br />பிறந்தநாள் வாழ்த்துக்கள்...</p>
