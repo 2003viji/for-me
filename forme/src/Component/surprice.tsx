@@ -173,16 +173,13 @@ export function Surprise() {
                       );
                     case 7:
                       // Text
-                      return  <iframe
-                          width="100%"
-                          height="100%"
+                      return (
+                        <video
                           src={gift}
-                          title="YouTube Shorts"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                          style={{ borderRadius: "8px" }}
-                        ></iframe>
+                          controls
+                          style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+                        />
+                      );
                     case 9:
                       return <div className="page final-cover" style={{ height: "100%" }}>
                         <p>என் காதலின் காதலுக்கு, <br />காற்றாகிய காதலின் <br />பிறந்தநாள் வாழ்த்துக்கள்...</p>
