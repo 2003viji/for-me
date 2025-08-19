@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 
 const gifts = [
-  "/images/bady2.jpg",
+  process.env.PUBLIC_URL + "/images/bady2.jpg",
   "https://youtube.com/shorts/l4PdDtbV7hM?si=8JuOK5UfJX8cc6d3",
-  "/images/bday-4.jpg",
-  "/videos/Azhagai-Pookuthe.mp3",
-  "/images/bday.jpg",
-  "/images/my-gift.jpg",
-  "/images/bday3.jfif",
-  "/videos/ai.mp4",
-  "/images/bday5.jpg",
+  process.env.PUBLIC_URL + "/images/bday-4.jpg",
+  process.env.PUBLIC_URL + "/videos/Azhagai-Pookuthe.mp3",
+  process.env.PUBLIC_URL + "/images/bday.jpg",
+  process.env.PUBLIC_URL + "/images/my-gift.jpg",
+  process.env.PUBLIC_URL + "/images/bday3.jfif",
+  process.env.PUBLIC_URL + "/videos/ai.mp4",
+  process.env.PUBLIC_URL + "/images/bday5.jpg",
   "Love you so much my love"
 ];
+
 
 export function Surprise() {
   const [ribbonRemoved, setRibbonRemoved] = useState(false);
@@ -201,7 +202,7 @@ export function Surprise() {
                 style={{
                   width: "100%",
                   height: "100%",
-                  backgroundImage: `url("/images/bday-6.jpg")`,
+                  backgroundImage: `url(${process.env.PUBLIC_URL + "/images/bday-6.jpg"})`,
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
